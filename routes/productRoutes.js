@@ -1,3 +1,6 @@
+//this file declares the routes the user can visit
+//references some of the methods (fr controller) that sends/shows data/pages to user 
+
 // Load express
 const express = require('express')
 
@@ -33,23 +36,23 @@ const {
 // Setup "index" route
 router.get('/', findAllProducts)
 
-// Setup "new" route
-router.get('/new', showNewView)
+// // Setup "new" route
+// router.get('/new', showNewView)
 
-// Setup "destroy" route
-router.delete('/:id', deleteOneProduct)
+// // Setup "destroy" route
+// router.delete('/:id', deleteOneProduct)
 
-// Setup "update" route
-router.put('/:id', updateOneProduct)
+// // Setup "update" route
+// router.put('/:id', updateOneProduct)
 
-// Setup "create" route
-router.post('/', createNewProduct)
+// // Setup "create" route
+// router.post('/', createNewProduct)
 
-// Setup "edit" route
-router.get('/:id/edit', showEditView)
+// // Setup "edit" route
+// router.get('/:id/edit', showEditView)
 
-// Setup "show" route  
-router.get('/:id', showOneProduct)
+// // Setup "show" route  
+// router.get('/:id', showOneProduct)
 
 // Setup "seed" route
 // router.get('/seed', seedStarterData)

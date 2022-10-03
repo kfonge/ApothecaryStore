@@ -1,0 +1,139 @@
+//note controller is basically where we put all the functions for our routes
+const Product = require('../models/product')
+
+// ROUTE     GET /products    (index)
+const findAllProducts = (req, res) => {  
+    // Find takes two arguments:
+    //   1st: an object with our query (to filter our data and find exactly what we need)
+    //   2nd: callback (with an error object and the found data)
+    Product.find({}, (err, foundProduct) => {
+        if (err) {
+            res.status(400).json(err)
+        } else {
+            res.status(200).render('Index', { products: foundProduct })
+        }
+    })
+}
+
+// ROUTE      GET /products/new    (new)
+const showNewView = (req, res) => {     
+    // res.send('<form>Create product</form>')
+    res.render('New')
+}
+
+// ROUTE     POST /products     (create)
+const createNewProduct = (req, res) => {
+    if (req.body.readyToEat === "on") {
+        req.body.readyToEat = true
+    } else {
+        req.body.readyToEat = false
+    }
+    // Create has two arguments:
+    //   1st: the data we want to send
+    //   2nd: callback function 
+    Product.create(req.body, (err, createdProduct) => {
+        if (err) {
+            res.status(400).json(err)
+        } else {
+            res.status(200).redirect('/products')
+        }
+    })
+}
+
+
+// ROUTE       GET /products/seed      (seed)
+const seedStarterData = (req, res) => {
+    // Delete all remaining documents (if there are any)
+    Product.deleteMany({}, (err, deletedProducts) => {
+        if (err) {
+            res.status(400).json(err)
+        } else {
+            console.log('deleted data.')
+            console.log(seed.products)
+            // Data has been successfully deleted
+            // Now use seed data to repopulate the database
+            Product.create(seed.products, (err, createdProduct) => {
+                if (err) {
+                    res.status(400).json(err)
+                } else {
+                    res.status(200).redirect('/products')
+                }
+            })
+        }
+    })
+}
+
+// ROUTE     GET /products/:id     (show)
+const showOneProduct = (req, res) => {
+    // findById accepts two arguments:
+    //   1st: the id of the document in our database
+    //   2nd: callback (with error object and found document)
+    Product.findById(req.params.id, (err, foundProduct) => {
+        if (err) {
+            res.status(400).json(err)
+        } else {
+            res.status(200).render('Show', { product: foundProduct })
+        }
+    })
+}
+
+
+// ROUTE      GET /products/:id/edit     (edit)
+const showEditView = (req, res) => {
+    Product.findById(req.params.id, (err, foundProduct) => {
+        if (err) {
+            res.status(400).json(err)
+        } else {
+            res.status(200).render('Edit', { product: foundProduct })
+        }
+    })
+}
+
+// ROUTE     PUT /products/:id       (update)
+const updateOneProduct = (req, res) => {
+
+    if (req.body.readyToEat === "on") {
+        req.body.readyToEat = true
+    } else {
+        req.body.readyToEat = false
+    }
+
+    // findByIdAndUpdate takes 4 arguments:
+    //    1st: the id 
+    //    2nd: new data we want to use to update the old document
+    //    3rd (optional): an options object, which looks like this:  { new: true }
+    //    4th: callback (with error object and foundProduct or updatedProduct)
+    Product.findByIdAndUpdate(req.params.id, req.body, (err, foundProduct) => {
+        if (err) {
+            res.status(400).json(err)
+        } else {
+            res.status(200).redirect(`/products/${req.params.id}`)
+        }
+    })
+}
+
+
+// ROUTE       DELETE /products/:id      (destroy)
+const deleteOneProduct = (req, res) => {
+    // console.log('in delete route')
+    // res.send('Deleting a product at index! (in DB)')
+    
+    Product.findByIdAndDelete(req.params.id, (err, deletedProduct) => {
+        if (err) {
+            res.status(400).json(err)
+        } else {
+            res.status(200).redirect('/products')
+        }
+    })
+}
+
+module.exports = {
+    findAllProducts,
+    showNewView, 
+    createNewProduct,
+    seedStarterData,
+    showOneProduct,
+    showEditView,
+    updateOneProduct,
+    deleteOneProduct
+}
