@@ -9,7 +9,9 @@ const Schema = mongoose.Schema
 const productSchema = new Schema({
     name: { type: String, required: true }, 
     price: { type: String, required: true }, 
-    inStock: Boolean
+    qty: { type: Number, required: true },
+    image: { type: String, required: true }
+    // InStock: Boolean
 })
 
 // create a Model from our Schema

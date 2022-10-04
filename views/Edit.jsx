@@ -7,7 +7,7 @@
 //         let { product } = this.props
 
 //         return (
-//             <DefaultLayout title="edit a product" >
+//             <DefaultLayout title="Edit product" >
 //                 <h1>Edit Page</h1>
 //                 <form action={`/products/${product._id}?_method=PUT`} method="POST">
 

@@ -52,10 +52,10 @@ router.get('/', findAllProducts)
 // router.get('/:id/edit', showEditView)
 
 // // Setup "show" route  
-// router.get('/:id', showOneProduct)
+router.get('/:id', showOneProduct)
 
 // Setup "seed" route
-// router.get('/seed', seedStarterData)
+router.get('/seed', seedStarterData)
 
 
 module.exports = router
