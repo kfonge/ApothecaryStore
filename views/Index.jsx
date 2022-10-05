@@ -1,4 +1,5 @@
 const React = require('react')
+const DefaultLayout = require('./layouts/DefaultLayout')
 
 class Index extends React.Component {
 
@@ -7,20 +8,21 @@ class Index extends React.Component {
         const { products } = this.props
 
         return (
-            <div>
+            <DefaultLayout title="All Product Inventory"> 
+                <div>
                     <h1>Inventory of Herbs</h1>
                     <ul id="products-index">
                         {products.map((product) => {
                             return (
                                 <li key={product._id}>
                                     
-                                    <a href={`/products/${product.id}`}>
+                                    <a href={`/products/${product._id}`}>
                                         <img style={{ height: '350px', width: '350px' }} src={product.image} />
                                     </a>
                                     <br></br>
                                     {product.name}
                                     <br></br>
-                                    {product.price}
+                                    Price: ${product.price}
                                     <br></br>
                                     Qty In Stock: {product.qty}
                                     
@@ -36,6 +38,7 @@ class Index extends React.Component {
                         <a href="/products/new">Create a new product</a>
                     </nav>
             </div>
+         </DefaultLayout> 
         )
     }
 }

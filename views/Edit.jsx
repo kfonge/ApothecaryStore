@@ -1,9 +1,10 @@
 const React = require('React')
+const DefaultLayout = require('./layouts/DefaultLayout')
 
 class Edit extends React.Component {
     render() {
            return (
-                  
+            <DefaultLayout title="Edit Product"> 
                <div className='box3'>
                          <link rel="stylesheet" href="/css/app.css" />
                          <h1><i>Edit Product Details</i></h1>
@@ -20,7 +21,7 @@ class Edit extends React.Component {
                                 <br></br>
                                 <input type="text" name="image" defaultValue={this.props.product.image} />
                                 <br></br>
-                                Price:
+                                Price: $
                                 <br></br>
                        <input type="number" name="price" step="1" min="0" defaultValue={this.props.product.price} />
                                 <br></br>
@@ -33,7 +34,8 @@ class Edit extends React.Component {
                                 <a href={`/products/`} style= {{marginLeft:10 + 'em'}} >Back </a>
                          </form>
                   </div>
-           )
+             </DefaultLayout> 
+            )
     }
 }
 module.exports = Edit

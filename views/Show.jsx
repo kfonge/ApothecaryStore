@@ -1,10 +1,13 @@
 const React = require('react')
+const DefaultLayout = require('./layouts/DefaultLayout')
+
 class Show extends React.Component {
        render() {
             // const {product} = this.props
            return (
-                  
-                     <div className='box2'>
+               
+            <DefaultLayout title="Product Details"> 
+                     <div id='style'>
                         <html>
                             <body>
                                     {/* <link rel="stylesheet" href="/css/app.css" /> */}
@@ -15,15 +18,14 @@ class Show extends React.Component {
                                     
                                     <h3>Description: {this.props.product.description}</h3>
                                     
-                                    <h3>Price: {this.props.product.price}</h3>
+                                    <h3>Price: ${this.props.product.price}</h3>
                                     
                                     <h3 >{this.props.product.qty > 0 ? `${this.props.product.qty} in stock` : `Out of Stock`}</h3>
                                     
-                                    <form action={`/products/${this.props._id}?_method=PATCH`} method="POST">
+                                    <form action={`/products/${this.props.product._id}/purchase?_method=PATCH`} method="POST">
                                         {this.props.product.qty > 0 ?
                                                 <input id="buy" type="submit" value="Buy product " /> : null}
                                     </form>
-                                    
                                     <br></br>
                                     <form action={`/products/${this.props.product._id}?_method=DELETE`} method="POST">
                                         <input type="submit" value="Delete" />
@@ -35,7 +37,8 @@ class Show extends React.Component {
                                     <a href={`/products/`}>Back </a>
                             </body>
                         </html>
-                     </div>
+                   </div>
+            </DefaultLayout> 
               )
        }
 }

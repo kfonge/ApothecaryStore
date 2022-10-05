@@ -22,7 +22,10 @@ const {
     showOneProduct,
     showEditView,
     updateOneProduct,
-    deleteOneProduct
+    deleteOneProduct,
+    purchaseProduct,
+    showPurchasedView
+
 } = require('../controllers/productController')
 
 // Bring in controller object (with methods attached)
@@ -54,7 +57,14 @@ router.get('/:id/edit', showEditView)
 // Setup "seed" route
 router.get('/seed', seedStarterData)
 
-// // Setup "show" route  
+// Setup "purchase" route
+router.patch('/:id/purchase', purchaseProduct)
+
+// Setup "thanks" route
+
+router.get('/purchase', showPurchasedView)
+
+// // Setup "show" route  - STAYS AT BOTTOM
 router.get('/:id', showOneProduct)
 
 

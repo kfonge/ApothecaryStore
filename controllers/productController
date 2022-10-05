@@ -121,16 +121,22 @@ const showOneProduct = (req, res) => {
 
 
 
-//PURCHASE
+// PURCHASE
+const purchaseProduct = (req, res) => {
+    Product.findOneAndUpdate({ _id: req.params.id }, { $inc: { 'qty': -1 } }, (err, updatedProduct) => {
+        if (err) {
+            res.status(400).json(err)
+        } else {
+            res.status(200).redirect(`/products/purchase`)
+        }
+    })
+}
 
-// Products.findOneAndUpdate({_id: req.params.id},{$inc : {'qty' : -1}}, (err, updatedProduct) => {
-//         if (err){
-//             res.status(400).json(err)
-//         } else {
-//             res.status(200).redirect(/product/${req.params.id}/purchase)
-//         }
-//     })
+//Thanks
 
+const showPurchasedView = (req, res) => {     
+    res.render('Purchase')
+}
 
 module.exports = {
     findAllProducts,
@@ -140,5 +146,7 @@ module.exports = {
     showOneProduct,
     showEditView,
     updateOneProduct,
-    deleteOneProduct
+    deleteOneProduct,
+    purchaseProduct,
+    showPurchasedView
 }
