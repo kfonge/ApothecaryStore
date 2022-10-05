@@ -1,5 +1,6 @@
 body{
-    background-image: https://t4.ftcdn.net/jpg/01/41/32/79/360_F_141327985_DOe6YqRkrWyWzL6evFo7z1l8ZbgFrsnv.jpg;
+    display: flex;
+    background-image: url('https://cdn.freeimage.me/images/161848173222657175.jpg');
 }
 
 ul{

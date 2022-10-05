@@ -93,12 +93,6 @@ const showEditView = (req, res) => {
 // ROUTE     PUT /products/:id       (update)
 const updateOneProduct = (req, res) => {
 
-    if (req.body.readyToEat === "on") {
-        req.body.readyToEat = true
-    } else {
-        req.body.readyToEat = false
-    }
-
     // findByIdAndUpdate takes 4 arguments:
     //    1st: the id 
     //    2nd: new data we want to use to update the old document
@@ -113,6 +107,15 @@ const updateOneProduct = (req, res) => {
     })
 }
 
+//PURCHASE
+
+// Products.findOneAndUpdate({_id: req.params.id},{$inc : {'qty' : -1}}, (err, updatedProduct) => {
+//         if (err){
+//             res.status(400).json(err)
+//         } else {
+//             res.status(200).redirect(/product/${req.params.id}/purchase)
+//         }
+//     })
 
 // ROUTE       DELETE /products/:id      (destroy)
 const deleteOneProduct = (req, res) => {

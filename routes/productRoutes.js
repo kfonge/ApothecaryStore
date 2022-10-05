@@ -36,26 +36,27 @@ const {
 // Setup "index" route
 router.get('/', findAllProducts)
 
-// // Setup "new" route
-// router.get('/new', showNewView)
+// Setup "new" route
+router.get('/new', showNewView)
 
-// // Setup "destroy" route
-// router.delete('/:id', deleteOneProduct)
+// Setup "destroy" route
+router.delete('/:id', deleteOneProduct)
 
 // // Setup "update" route
-// router.put('/:id', updateOneProduct)
+router.put('/:id', updateOneProduct)
 
-// // Setup "create" route
-// router.post('/', createNewProduct)
+// Setup "create" route
+router.post('/', createNewProduct)
 
 // // Setup "edit" route
-// router.get('/:id/edit', showEditView)
+router.get('/:id/edit', showEditView)
+
+// Setup "seed" route
+router.get('/seed', seedStarterData)
 
 // // Setup "show" route  
 router.get('/:id', showOneProduct)
 
-// Setup "seed" route
-router.get('/seed', seedStarterData)
 
 
 module.exports = router

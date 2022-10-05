@@ -1,3 +1,42 @@
+const React = require('React')
+
+class Edit extends React.Component {
+    render() {
+           return (
+                  <div className='box3'>
+                         <link rel="stylesheet" href="/css/app.css" />
+                         <h1><i>Edit Product Details</i></h1>
+                   <form action={`/products/${this.props.product._id}?_method=PUT`} method="POST">
+                                Name:
+                                <br></br>
+                                <input type="text" name="name" defaultValue={this.props.product.name} />
+                                <br></br>
+                                Description:
+                                <br></br>
+                       <input type="text" name="description" defaultValue={this.props.product.description} />
+                                <br></br>
+                                Image URL:
+                                <br></br>
+                                <input type="text" name="image" defaultValue={this.props.product.image} />
+                                <br></br>
+                                Price:
+                                <br></br>
+                       <input type="number" name="price" step="1" min="0" defaultValue={this.props.product.price} />
+                                <br></br>
+                                Quantity:
+                                <br></br>
+                       <input type="number" name="qty" min="0" step="1" defaultValue={this.props.product.qty} />
+                                <br></br>
+                                
+                                <input type="submit" name="" value="Update Product"  /><br></br>                                    
+                                <a href={`/products/`} style= {{marginLeft:10 + 'em'}} >Back </a>
+                         </form>
+                  </div>
+           )
+    }
+}
+module.exports = Edit
+
 // const React = require('react')
 // const DefaultLayout = require('../layouts/DefaultLayout')
 

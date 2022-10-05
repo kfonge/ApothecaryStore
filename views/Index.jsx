@@ -16,7 +16,7 @@ class Index extends React.Component {
                             return (
                                 <li key={product._id}>
                                     
-                                    <a href={`${product.id}`}>
+                                    <a href={`/products/${product.id}`}>
                                         <img style={{ height: '350px', width: '350px' }} src={product.image} />
                                     </a>
                                     <br></br>
