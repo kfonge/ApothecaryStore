@@ -2,7 +2,8 @@ const React = require('react')
 class Show extends React.Component {
        render() {
             // const {product} = this.props
-              return (
+           return (
+                  
                      <div className='box2'>
                         <html>
                             <body>
@@ -18,7 +19,7 @@ class Show extends React.Component {
                                     
                                     <h3 >{this.props.product.qty > 0 ? `${this.props.product.qty} in stock` : `Out of Stock`}</h3>
                                     
-                                    <form action={`/products/${this.props.product._id}?_method=PATCH`} method="POST">
+                                    <form action={`/products/${this.props._id}?_method=PATCH`} method="POST">
                                         {this.props.product.qty > 0 ?
                                                 <input id="buy" type="submit" value="Buy product " /> : null}
                                     </form>
@@ -39,37 +40,3 @@ class Show extends React.Component {
        }
 }
 module.exports = Show;
-
-// const React = require('react')
-// const DefaultLayout = require('./layouts/DefaultLayout')
-
-// class Show extends React.Component {
-//     render() {
-
-//         let { product } = this.props
-
-//         return (
-//             <DefaultLayout >
-//                 <h1>Show Page</h1>
-//                 <form action={`/products/${product._id}?_method=PUT`} method="POST">
-
-//                     <label htmlFor="name">Name:</label>
-//                     <input type="text" id="name" name="name" defaultValue={product.name} />
-
-//                     <label htmlFor="price">Price:</label>
-//                     <input type="text" id="price" price="price" defaultValue={product.price} />
-
-//                     <label htmlFor="volume">Volume:</label>
-//                     <input type="text" id="volume" name="volume" defaultValue={product.volume} />
-
-//                     <label htmlFor="inStock">Currently in stock:</label>
-//                     <input type="checkbox" id="inStock" name="inStock" defaultChecked={product.inStock} />
-
-//                     <input type="submit" value="Edit Product"/>
-//                 </form>
-//             </DefaultLayout>
-//         )
-//     }
-// }
-
-// module.exports = Show

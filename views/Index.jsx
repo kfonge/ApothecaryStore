@@ -1,6 +1,4 @@
 const React = require('react')
-const DefaultLayout = require('./layouts/DefaultLayout')
-
 
 class Index extends React.Component {
 
@@ -9,7 +7,7 @@ class Index extends React.Component {
         const { products } = this.props
 
         return (
-            <DefaultLayout title='Herbal Apothecary'>
+            <div>
                     <h1>Inventory of Herbs</h1>
                     <ul id="products-index">
                         {products.map((product) => {
@@ -37,7 +35,7 @@ class Index extends React.Component {
                     <nav>
                         <a href="/products/new">Create a new product</a>
                     </nav>
-            </DefaultLayout>
+            </div>
         )
     }
 }

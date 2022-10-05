@@ -26,6 +26,15 @@ const products = [
         price: "$18",
         qty: 3,
         image: "https://files.tofugu.com/articles/japan/2013-06-24-tea-in-japan/jasminecha.jpg",
+    },
+    
+    {
+        name: "Tumeric",
+        volume: "12oz",
+        description: "bold floral and earthy notes ",
+        price: "$18",
+        qty: 3,
+        image: "https://files.tofugu.com/articles/japan/2013-06-24-tea-in-japan/jasminecha.jpg",
       },
 ]
 module.exports = products

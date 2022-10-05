@@ -22,13 +22,41 @@ const showNewView = (req, res) => {
     res.render('New')
 }
 
+
+// ROUTE       DELETE /products/:id      (destroy)
+const deleteOneProduct = (req, res) => {
+    // console.log('in delete route')
+    // res.send('Deleting a product at index! (in DB)')
+    
+    Product.findByIdAndDelete(req.params.id, (err, deletedProduct) => {
+        if (err) {
+            res.status(400).json(err)
+        } else {
+            res.status(200).redirect('/products')
+        }
+    })
+}
+
+// ROUTE     PUT /products/:id       (update)
+const updateOneProduct = (req, res) => {
+
+    // findByIdAndUpdate takes 4 arguments:
+    //    1st: the id 
+    //    2nd: new data we want to use to update the old document
+    //    3rd (optional): an options object, which looks like this:  { new: true }
+    //    4th: callback (with error object and foundProduct or updatedProduct)
+    Product.findByIdAndUpdate(req.params.id, req.body, (err, foundProduct) => {
+        if (err) {
+            res.status(400).json(err)
+        } else {
+            res.status(200).redirect(`/products/${req.params.id}`)
+        }
+    })
+}
+
 // ROUTE     POST /products     (create)
 const createNewProduct = (req, res) => {
-    if (req.body.readyToEat === "on") {
-        req.body.readyToEat = true
-    } else {
-        req.body.readyToEat = false
-    }
+  
     // Create has two arguments:
     //   1st: the data we want to send
     //   2nd: callback function 
@@ -37,6 +65,17 @@ const createNewProduct = (req, res) => {
             res.status(400).json(err)
         } else {
             res.status(200).redirect('/products')
+        }
+    })
+}
+
+// ROUTE      GET /products/:id/edit     (edit)
+const showEditView = (req, res) => {
+    Product.findById(req.params.id, (err, foundProduct) => {
+        if (err) {
+            res.status(400).json(err)
+        } else {
+            res.status(200).render('Edit', { product: foundProduct })
         }
     })
 }
@@ -79,33 +118,8 @@ const showOneProduct = (req, res) => {
 }
 
 
-// ROUTE      GET /products/:id/edit     (edit)
-const showEditView = (req, res) => {
-    Product.findById(req.params.id, (err, foundProduct) => {
-        if (err) {
-            res.status(400).json(err)
-        } else {
-            res.status(200).render('Edit', { product: foundProduct })
-        }
-    })
-}
 
-// ROUTE     PUT /products/:id       (update)
-const updateOneProduct = (req, res) => {
 
-    // findByIdAndUpdate takes 4 arguments:
-    //    1st: the id 
-    //    2nd: new data we want to use to update the old document
-    //    3rd (optional): an options object, which looks like this:  { new: true }
-    //    4th: callback (with error object and foundProduct or updatedProduct)
-    Product.findByIdAndUpdate(req.params.id, req.body, (err, foundProduct) => {
-        if (err) {
-            res.status(400).json(err)
-        } else {
-            res.status(200).redirect(`/products/${req.params.id}`)
-        }
-    })
-}
 
 //PURCHASE
 
@@ -117,19 +131,6 @@ const updateOneProduct = (req, res) => {
 //         }
 //     })
 
-// ROUTE       DELETE /products/:id      (destroy)
-const deleteOneProduct = (req, res) => {
-    // console.log('in delete route')
-    // res.send('Deleting a product at index! (in DB)')
-    
-    Product.findByIdAndDelete(req.params.id, (err, deletedProduct) => {
-        if (err) {
-            res.status(400).json(err)
-        } else {
-            res.status(200).redirect('/products')
-        }
-    })
-}
 
 module.exports = {
     findAllProducts,
