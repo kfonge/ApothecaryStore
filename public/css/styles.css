@@ -1,11 +1,65 @@
 body{
-    display: flex;
+    display: grid;
     background-image: url('https://cdn.freeimage.me/images/161848173222657175.jpg');
 }
 
-/* #style{
-    background-color: black;
-} */
+.title{
+    font-family: "Papyrus";
+    font-size: xx-large;
+}
+
 ul{
     list-style-type: none;
+}
+
+#products-index{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space space-evenly;
+    width: 10
+00px;
+}
+
+.org-items{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#header{
+    font-family: "Papyrus";
+    display: flex;
+
+}
+
+.subheader{
+    font-family: "Papyrus";
+    font-size: larger;
+    font-weight: 800;
+    background-color: antiquewhite;
+    border-radius: 1fr;
+
+}
+
+.para{
+    font-family: "Papyrus";
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.topline{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* background-color: antiquewhite; */
+
+}
+#priceline{
+    font-size: 30px;
+}
+.flexContainer{
+    display: grid;
+    justify-content: center;
+    align-items: center;
 }

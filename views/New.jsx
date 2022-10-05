@@ -7,7 +7,7 @@ class New extends React.Component {
             <DefaultLayout title="Add New - Product Details"> 
                   <div className='box3'>
                          <link rel="stylesheet" href="/css/app.css" />
-                         <h1><i>Create Product Page</i></h1>
+                         <h1 id='header'><i>Create Product Page</i></h1>
                          <form action="/products" method="POST">
                                 Name:
                                 <br></br>

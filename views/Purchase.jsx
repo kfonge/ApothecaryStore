@@ -10,7 +10,7 @@ class Purchase extends React.Component {
         return (
             <DefaultLayout title="All Product Inventory"> 
                 <div>
-                    <h1>Thank you for shopping with us!</h1>
+                    <h1 id='header'>Thank you for shopping with us!</h1>
                     
                     <nav>
                         <a href="/products">Home</a>

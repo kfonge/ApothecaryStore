@@ -7,7 +7,7 @@ class Edit extends React.Component {
             <DefaultLayout title="Edit Product"> 
                <div className='box3'>
                          <link rel="stylesheet" href="/css/app.css" />
-                         <h1><i>Edit Product Details</i></h1>
+                         <h1 id='header'><i>Edit Product Details</i></h1>
                    <form action={`/products/${this.props.product._id}?_method=PUT`} method="POST">
                                 Name:
                                 <br></br>

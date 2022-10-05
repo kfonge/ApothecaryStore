@@ -10,22 +10,21 @@ class Index extends React.Component {
         return (
             <DefaultLayout title="All Product Inventory"> 
                 <div>
-                    <h1>Inventory of Herbs</h1>
+                    <h1 id='header'>Herbal Tea Apothecary</h1>
                     <ul id="products-index">
                         {products.map((product) => {
                             return (
-                                <li key={product._id}>
+                                <li class='org-items' key={product._id}>
                                     
                                     <a href={`/products/${product._id}`}>
-                                        <img style={{ height: '350px', width: '350px' }} src={product.image} />
+                                        <img style={{ height: '300px', width: '300px' }} src={product.image} />
                                     </a>
-                                    <br></br>
-                                    {product.name}
-                                    <br></br>
-                                    Price: ${product.price}
-                                    <br></br>
-                                    Qty In Stock: {product.qty}
-                                    
+                                    <div class='para'>
+                                        <div class='topline'>
+                                            <p id='priceline'>{product.name}</p>
+                                            <p id='priceline'> ${product.price}</p>
+                                        </div>
+                                    </div>
                                     
                                     
                                 </li>

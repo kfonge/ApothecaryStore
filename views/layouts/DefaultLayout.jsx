@@ -1,6 +1,7 @@
 const React = require('react')
 
 class DefaultLayout extends React.Component {
+    
     render() {
         return (
             <html>
@@ -10,7 +11,9 @@ class DefaultLayout extends React.Component {
                     <link rel="stylesheet" href="/css/styles.css" />
                 </head>
                 <body>
-                    {this.props.children}   
+                <div class="flexContainer">
+                        {this.props.children}   
+                </div>
                 </body>
             </html>
         )
