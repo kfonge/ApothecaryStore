@@ -15,9 +15,8 @@ ul{
 #products-index{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space space-evenly;
-    width: 10
-00px;
+    justify-content: space-evenly;
+    width: 1100px;
 }
 
 .org-items{
